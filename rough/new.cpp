@@ -18,8 +18,17 @@ int max3( int a , int b , int c){
 }
 
 int main(){
-    cout<<max3(69,420,504);
-    
-    
+    // char* str;
+    // cout<<"enter the first string :\n";
+    // gets(str);
+    // int i = 0;
+    // while(*(str+i) !='\0' ){
+    //     cout<<*(str+i);
+    //     i++;
+    // }
+
+    int * arr;
+    int i =0;
+    arr = new int[10];
     return 0;
 }
