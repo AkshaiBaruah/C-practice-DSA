@@ -12,7 +12,7 @@ struct Node{
     }
 };
 //iterative insert
-Node * Iinsert(Node * root , int key){
+Node * Iinsert(Node * root , int key){                     //returns the root of the BST
     Node* prev = nullptr;
     Node* curr = root;
     while(curr!= nullptr){
@@ -51,5 +51,4 @@ Node * Rinsert(Node* root , int key){
 int main(){
     
     return 0;
-
 }

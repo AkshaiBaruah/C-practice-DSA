@@ -26,6 +26,8 @@ int main(){
     //     cout<<*(str+i);
     //     i++;
     // }
+    vector<int> v(10);
+    vector<int>::iterator it = v.begin();
 
     int * arr;
     int i =0;
