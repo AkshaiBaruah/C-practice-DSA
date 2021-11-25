@@ -1,25 +1,21 @@
 #include<iostream>
+#include<unordered_map>
 using namespace std;
-int sum (int n)
-{ int x;
-   //x=n;       not necessary
-   //x= n%10;   not necessary as n%10 can be directly used in the expression
-   
-    while(n!=0)
-    return n%10 +sum(n/10);
-    return 0;
+
+int majority1(int arr[] , int n){                       //using hashmap
+    unordered_map<int , int> freq;
+    for(int i =0; i < n ;i++){                         //O(n)
+        freq[arr[i]]++;
+        if(freq[arr[i]] > n/2)
+            return arr[i];
+    }
+    return INT32_MIN;
 }
+int main(){
 
+    int arr[] = {1,1,1,12,6,7};
+    cout<<majority1(arr , 7 );
+    return 0;
 
-int main()
-{
-    int n{};
-    
-    cout<<"enter a number"<<endl;
-    cin>>n;
-    
-    cout<<"sum of digits of the number is"<<endl;
-    cout<<sum(n);
-    
     
 }

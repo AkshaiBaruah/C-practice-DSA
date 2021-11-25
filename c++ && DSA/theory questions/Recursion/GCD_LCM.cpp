@@ -9,14 +9,12 @@ int bruteGCD(int a , int b){
     }while(n--);
     return n+1;
 }
+
 int GCD(int a , int b){
 
-    while(a%b !=0){
-        int rem = a%b;
-        a = b;
-        b = rem;
-    }
-    return b;
+    if(a%b == 0)
+        return b;
+    return GCD(b , a%b);
 }
 
 int LCM(int a , int b){
@@ -25,7 +23,7 @@ int LCM(int a , int b){
 
 int main(){
     cout<<bruteGCD(7,23)<<endl;
-    cout<<GCD(12 , 24)<<endl;
+    cout<<GCD(12,24)<<endl;
     cout<<LCM(12,18)<<endl;
 
     return 0;
