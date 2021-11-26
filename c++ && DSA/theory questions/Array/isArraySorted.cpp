@@ -38,10 +38,4 @@ int main(){
     cout<<boolalpha<<isSorted(arr , 8);
     return 0;
 
-
-
-
-
-
-    int arr [] = {1,2,2,4,5,6,7,8,9,10};
 }

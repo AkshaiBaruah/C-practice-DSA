@@ -30,7 +30,7 @@ void merge ( int arr[] , int l , int mid , int h){
     for(int i = 0 ; i<n1 ; i++){             //copy the left elements into left array
         left[i] = arr[l + i];
     }
-    for(int i = 0 ; i<n2 ; i++){             //copy the right elements into tight array
+    for(int i = 0 ; i<n2 ; i++){             //copy the right elements into right array
         right[i] = arr[mid + 1 + i];
     }
 

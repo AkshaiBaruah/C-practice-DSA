@@ -90,6 +90,17 @@ int main(){
     //printNth trial
     printNth(head2 , 5);
     printNth(head2 , 9); 
+
+    Node* latest = nullptr;
+    latest = insertBegin(latest , 10);
+    latest = insertEnd(latest , 20);
+    latest = insertEnd(latest , 30);
+    latest = insertEnd(latest , 40);
+    latest = insertEnd(latest , 50);
+    latest = insertEnd(latest , 60);
+    printList(latest);
+    latest = insertPos(latest , 7 , 69);
+    printList(latest);
     
 
     return 0;
@@ -160,7 +171,7 @@ Node* deleteHead(Node * head){
 }
 //deletes the tail and then returns the modified head(in case of null head or only one element in linked list it returns null as head)
 Node* deleteTail(Node * head){
-    if(head == nullptr || head->next == nullptr){
+    if(head == nullptr || head->next == nullptr){         //explicit cases as we will modify head in this
         delete head;
         return nullptr;
     }
@@ -176,30 +187,26 @@ Node* deleteTail(Node * head){
 Node* insertPos(Node * head , int pos , int data){
     Node* newNode = new Node(data);
 
-    if(head == nullptr && pos>=2)
-    return nullptr;
+    // if(head == nullptr && pos>=2)                       
+    // return nullptr;
     //if we need to insert a1 1st position (head)
-    if(pos ==1){
+    if(pos ==1){                        //the only case where we modify head;
         newNode->next = head;
         return newNode;
     }
 
     int curr_pos = 1;
     Node * curr = head;
-    while(curr->next!= nullptr){
-        if( (curr_pos + 1) == pos)
-        break;
+    while(curr!= nullptr){
+        if( (curr_pos + 1) == pos){
+            newNode->next = curr->next;
+            curr->next = newNode;
+            return head;
+        }
         curr = curr->next;
         curr_pos++;
     }
-    if(curr_pos + 1 != pos){
-        return head;
-    }
-    else{
-        newNode->next = curr->next; 
-        curr->next = newNode;
-        return head;
-    }
+    return head;
 }
 //inserts at correct position by asc order assuming linked list is sorted 
 Node* sortedInsert(Node * head , int data){

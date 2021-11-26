@@ -1,4 +1,4 @@
-#include<iostream>
+#include<iostream>                          //Moore's voting algorithm
 using namespace std;
 
 int maj(int arr[] , int n , int x , int y){
