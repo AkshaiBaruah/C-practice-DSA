@@ -29,13 +29,13 @@ int main(){
 }
 
 
-//Standart solution
+//Standard solution
 
 void insertion_sort ( int arr[] , int n ){
     for (int i = 1 ; i<n ; i++){
         int key = arr[i];                  //element to be inserted in sorted part
         int j = i-1 ;                      //because we will have to place in a position in the sorted part which starts from i-1 and goes backwards.
-        while ( arr[j] > key && j>=0  ){   //because if arr[j] <= key found then key must be places at place j+1;
+        while ( j>=0 && arr[j] > key ){   //because if arr[j] <= key found then key must be places at place j+1;
             arr[j+1] = arr [j];            // shift jth element by 1 position right i.e. to j+1
             j--;                           
         }
