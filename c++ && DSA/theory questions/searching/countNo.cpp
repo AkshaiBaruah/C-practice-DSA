@@ -39,12 +39,14 @@ int last_occur(int arr[] , int n , int key){
 
 int count_occur(int arr[] , int n , int key){
     int f = first_occcr(arr , n , key);
+    if(f==-1) return 0;
     int l = last_occur(arr , n , key);
  
-    return ((l+f) == -2)? 0 : l-f+1;
+    return l-f+1;
 }
 
 int main(){
     int arr[] = {1,2,3,4,5,5,5,8,9,10};
-    cout<<count_occur(arr , 10 , 53);              //(array , size , key)
+    cout<<count_occur(arr , 10 , 10);              //(array , size , key)
+    return 0;
 }
