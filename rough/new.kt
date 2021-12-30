@@ -12,3 +12,9 @@ fun sum(n : Int) : Int{
     //println("the sum of first $n natural numbers is : $sum")
     return sum
 }
+void printList(Node * head){
+    
+}
+int main(){
+    return 0;
+}

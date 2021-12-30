@@ -149,7 +149,7 @@ Node* insertBegin(Node *  head , int data){
 Node* insertEnd( Node* head , int data){
     
     Node * newNode = new Node(data);
-    if(head == nullptr)
+    if(head == nullptr)                   //edge case as we need to change head
     return newNode;
     Node* curr = head;
     while(curr->next!= nullptr){
@@ -217,7 +217,7 @@ Node* sortedInsert(Node * head , int data){
         return newNode;
     }
     Node* curr = head;
-    //after ensuring at least two elements
+    
     while(curr->next != nullptr){
         if(curr->next->data > data)
         break;
