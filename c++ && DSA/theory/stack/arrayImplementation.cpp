@@ -4,7 +4,7 @@ using namespace std;
 struct Mystack{
 
     int cap;                        //size of the array used
-    int *arr;                       //pointer to point to heap memory for DMA
+    int *arr;                       //pointer to point to heap memory where array[cap] will be declared
     int top;                        //index of the topmost element which is also the current element in stack
 
     //constructor
@@ -21,7 +21,7 @@ struct Mystack{
         top++;
         arr[top] = data;
     }
-    int pop(){
+    int pop(){                         //removes the top element and also returns it;
         if(top == -1){
             cout<<"underflow"<<endl;
             return INT32_MIN;
@@ -30,8 +30,8 @@ struct Mystack{
         top--;                         //decreasing the size by 1
         return res;                    //returning the previously stored top element;
     }
-    int peek(){                        
-        if(top ==-1){
+    int peek(){                        //returns the top element              
+        if(top ==-1){                  //top == -1 means stack is empty so we return invalid number like inf
             cout<<"underflow"<<endl;
             return INT32_MIN;
         }
