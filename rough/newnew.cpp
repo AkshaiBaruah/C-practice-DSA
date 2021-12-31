@@ -1,47 +1,71 @@
 #include<bits/stdc++.h>
 using namespace std;
-struct Node{
-    int data;
-    Node* next ;
-    Node(int data){
-        this->data = data;
-        next = nullptr;
+
+struct MyQueue{
+    int cap;
+    int* arr;
+    int size;
+    int rear;
+    MyQueue(int cap){
+        this->cap = cap;
+        arr = new int[cap];
+        size = 0;
+        rear = -1;
+    }
+    void enque(int data){
+        if(isFull())
+            return;
+        size++;
+        rear = (rear + 1)%cap;
+        arr[rear] = data;
+    }
+    void deque(){
+        if(isEmpty())
+            return ;
+        size--;
+    }
+    int getFront(){
+        if(size!= 0){
+            return arr[(rear - size + 1 + cap)%cap];
+        }
+        return INT32_MIN;
+    }
+    int getRear(){
+        if(size!= 0){
+            return arr[rear];
+        }
+        return INT32_MIN;
+    }
+    int getSize(){
+        return size;
+    }
+    bool isFull(){
+        return (size == cap);
+    }
+    bool isEmpty(){
+        return (size == 0);
     }
 };
-Node* insertEnd(Node* head , int data){
-    Node* newNode = new Node(data);
-    if(head == nullptr)
-        return newNode;
-    Node* curr = head;
-    while(curr->next!=nullptr){
-        curr = curr->next;
-    }
-    curr->next = newNode;
-    return head;
-
-}
-
-
-bool isLooped(Node* head){
-    unordered_set<Node*> m;
-    Node* curr = head;
-    while(curr!= nullptr){
-        if(m.find(curr) != m.end()){
-            return true;
-        }
-        m.insert(curr);
-        curr= curr->next;
-    }
-    return false;
-}
-
 int main(){
-    Node* head = nullptr;
-    head = insertEnd(head,10);
-    head = insertEnd(head,20);
-    head = insertEnd(head,30);
-    head = insertEnd(head,40);
-    head->next->next->next->next = head->next;
-    cout<<boolalpha<<isLooped(head);
+    
+    MyQueue q(6);
+    q.enque(10);
+    q.enque(20);
+    q.enque(30);
+    q.enque(40);
+    q.enque(50);
+    q.enque(60);
+    cout<<q.getFront()<<" "<<q.getRear()<<" "<<q.getSize()<<endl;
+    q.deque();
+    cout<<q.getFront()<<" "<<q.getRear()<<" "<<q.getSize()<<endl;
+    q.enque(70);
+    cout<<q.getFront()<<" "<<q.getRear()<<" "<<q.getSize()<<endl;
+    q.deque();
+    q.deque();
+    q.deque();
+    q.deque();
+    q.deque();
+    cout<<q.getFront()<<" "<<q.getRear()<<" "<<q.getSize()<<endl;
+
     return 0;
 }
