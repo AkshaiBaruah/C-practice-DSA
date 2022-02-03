@@ -64,7 +64,7 @@ void merge ( int arr[] , int l , int mid , int h){
 void merge_sort(int arr[] , int l , int h ){
     
     if (l < h){
-        int mid = l + (h - l)/2;              //we can right l+h but it may exceed limits of integer 
+        int mid = l + (h - l)/2;              //we can write l+h but it may exceed limits of integer 
         merge_sort( arr , l ,mid);
         merge_sort( arr, mid +1 , h);
         merge( arr , l , mid , h);

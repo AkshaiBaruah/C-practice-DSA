@@ -3,7 +3,9 @@
 using namespace std;
 
 int remDup(int arr[]  , int n){
-    int size = 1;
+    if(n==0)
+        return 0;
+    int size = 1;                         //because at least 1 element will be unique obv
     for(int i = 1; i <n ; i++){
         if(arr[i] != arr[size-1]){
             arr[size] = arr[i];
@@ -12,6 +14,7 @@ int remDup(int arr[]  , int n){
     }
     return size; 
 }
+
 int main(){
     int arr[] = {1,1,1,2,3,4,4};
     int n = remDup(arr , 7);

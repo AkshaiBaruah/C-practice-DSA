@@ -1,9 +1,9 @@
 #include<iostream>
 using namespace std;
+//checks for ascending sorted from indices l to r
+bool isAscSorted(int arr[] , int l , int r){           //l->left index , r->right index
 
-bool isAscSorted(int arr[] , int l , int r){
-
-    for(int i = l; i<r ; ++i){
+    for(int i = l; i<r ; ++i){                         //loop from l till least second of right index because i+1 is accessed
         if(arr[i] > arr[i+1])
             return false;
     }

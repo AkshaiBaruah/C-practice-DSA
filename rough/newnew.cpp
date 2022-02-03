@@ -1,15 +1,15 @@
 #include<iostream>
 using namespace std;
 
-int getMax(int arr[] , int n ){
-    int maxm = INT32_MIN;
-    for(int i =0 ; i<n ; i++){
-        maxm = max(arr[i] , maxm);
+void reverse(int arr[] , int n){
+    int l = 0; int r= n-1;
+    while(l<=r){
+        swap(arr[l++] , arr[r--]);
     }
-    return maxm;
 }
 int main(){
     int arr[] = {1,2,3,4,65,5,0,63,3};
-    cout<<getMax(arr , sizeof(arr)/sizeof(int));
+    
+    
     return 0;
 }

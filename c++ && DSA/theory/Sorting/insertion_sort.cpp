@@ -54,8 +54,8 @@ void insertion_sort( int arr[] , int n ){
                 arr[j+1] = key;
                 break;
             }
-            arr[j+1] = arr[j];            //If key < arr[j] then shift j to j+1 position and insert key in j temporarily.
-            arr[j] = key;
+            arr[j+1] = arr[j];            //If key < arr[j] then shift j to j+1 position
+            arr[j] = key;                 //i don't think this line is needed;
         }
     }
 }*/
