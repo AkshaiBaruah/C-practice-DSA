@@ -15,16 +15,16 @@ struct Node{
 void levelOrderTraversal(Node* root){
     if(root == nullptr)                         //explicit case when null root is passed
     return;
-    queue<Node*> q ;
-    q.push(root);
+    queue<Node*> q ;                            //this queue has a level left to right;
+    q.push(root);                               
     while(!q.empty()){
-        Node* curr = q.front();                 //this is the statement where curr changes
+        Node* curr = q.front();                 //this is the statement where curr changes to the first of the queue.
         q.pop();
         cout<<curr->key<<" ";
         if(curr->left != nullptr)
-        q.push(curr->left);
+            q.push(curr->left);
         if(curr->right != nullptr)
-        q.push(curr->right);
+            q.push(curr->right);
     }
 }
 

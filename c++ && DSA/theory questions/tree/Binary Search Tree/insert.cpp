@@ -13,19 +13,25 @@ struct Node{
 };
 //iterative insert
 Node * Iinsert(Node * root , int key){                     //returns the root of the BST
+
+    if (root == nullptr)                                   //explicit case of null root passed
+        return new Node(key);
+
     Node* prev = nullptr;
     Node* curr = root;
     while(curr!= nullptr){
+        prev = curr;
+
         if(curr->key ==key)
             return root;
         else if(key < curr->key)
             curr=curr->left;
         else
             curr=curr->right;
-    }
-    if(prev == nullptr)
-        return new Node(key);
-    else if(key < prev->key){
+    }                                                      
+    //prev can't be nullptr because root was not initially null so prev will change from initialized null to something else
+    //this prev now will be the prev of curr that means we need to insert after prev depending on lesser or greater
+    if(key < prev->key){
         prev->left = new Node(key);
         return root;
     }

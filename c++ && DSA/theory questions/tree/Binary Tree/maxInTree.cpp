@@ -16,9 +16,9 @@ int max3(int a, int b , int c){
     return max(max(a , b) , c);
 }
 
-int getMax( Node* root){
+int getMax(Node* root){
     if(root == nullptr)
-    return INT32_MIN;
+        return INT32_MIN;                  
     return max3(getMax(root->left) , getMax(root->right) , root->key);
 }
 

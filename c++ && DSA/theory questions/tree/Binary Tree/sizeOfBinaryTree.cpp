@@ -13,7 +13,7 @@ struct Node{
 
 int size(Node * root){
     if(root == nullptr)
-    return 0;
+        return 0;
     return size(root->left) + size(root->right) + 1;
 }
 

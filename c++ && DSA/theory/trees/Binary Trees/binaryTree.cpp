@@ -14,28 +14,28 @@ struct Node{
 
 void inorder(Node* root){
     if (root == nullptr)
-    return;
+        return;
     inorder(root->left);
     cout<<root->key<<" ";
     inorder(root->right);
 }
 void preorder(Node * root){
     if(root == nullptr)
-    return;
+        return;
     cout<<root->key<<" ";
     preorder(root->left);
     preorder(root->right);
 }
 void postorder(Node * root){
     if(root == nullptr)
-    return;
+        return;
     postorder(root->left);
     postorder(root->right);
     cout<<root->key<<" ";
 }
 int height(Node * root){
     if(root == nullptr)
-    return 0;
+        return 0;
     return max(height(root->left) , height(root->right)) + 1;
 }
 

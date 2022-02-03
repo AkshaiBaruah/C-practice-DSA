@@ -14,7 +14,7 @@ struct Node{
 void printKth(Node* root , int k){
 
     if(root == nullptr)
-    return;
+        return;
 
     if(k==0){
         cout<<root->key<<" ";

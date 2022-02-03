@@ -25,7 +25,7 @@ bool Isearch(Node* root , int key){                    //this function assumes t
     return false;
 }
 bool Rsearch(Node* root , int key){                    //this function assumes that all nodes have distinct keys 
-    if(root == nullptr)
+    if(root == nullptr)                                //base case and explicit case for null root passed
     return false;
 
     else if(key == root->key)
