@@ -21,6 +21,13 @@ Node * Rinsert(Node* root , int key){
     
     return root;
 }
+void inorder(Node* root){
+    if(root == nullptr)
+        return ;
+    inorder(root->left);
+    cout<<root->key<<" ";
+    inorder(root->right);
+}
 
 Node* Rdelete(Node* root , int key){
     if(root == nullptr)
@@ -55,6 +62,8 @@ Node* Rdelete(Node* root , int key){
         root->right = Rdelete(root->right , prev->key);   //now just need to delete a leaf node 
         
     }
+    return root;
+    
 }
 
 int main(){
@@ -68,5 +77,9 @@ int main(){
     root = Rinsert(root , 30);
     root = Rinsert(root , 10);
     root = Rinsert(root , 40);
+    inorder(root);
+    cout<<endl;
+    root =Rdelete(root,  30);
+    inorder(root);
 
 }
