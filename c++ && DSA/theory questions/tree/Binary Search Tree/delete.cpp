@@ -30,21 +30,30 @@ Node* Rdelete(Node* root , int key){
     else if(key > root->key)
         root->right = Rdelete(root->right , key);   //above three conditions handle search of key and if key not present then it keeps on calling until null is reached and then it returns the original root;
     else{                                           //this is when we find the key...then we need to replace the key with Inorder successor
-        Node* prev = root;                          //we find successor which is leftmost node of right child
+
+        if(root->left == nullptr){
+            Node* temp = root->right;
+            delete root;
+            return temp;
+        }
+        if(root->right == nullptr){
+            Node* temp = root->left;
+            delete root;
+            return temp;
+        }
+        //above two handles leaf node and single child
+
+        //both child non empty
+        Node* prev = root;                          //we find successor which is leftmost node of right subtree
         Node* curr = root->right;                   //if right child is null(which is in case of leaf node and node having left child only) then node is deleted and left child is coppied to its parent(null in case of leaf node);
         while(curr!=nullptr){                       //while loop to find successor
             prev =curr;
             curr = curr->left; 
-        }                                           //after loop ends prev will be the successor
-        if(prev==root){                             //if prev==root it means right child was null and then left is simply copied in place of root and root is deleted;
-            Node* temp = root->left;
-            delete root;                            //root is deleted
-            return temp;                            //root->left takes the place of root;
-        }
-        else{                                       
-            root->key = prev->key;
-            root->right = Rdelete(root->right , prev->key);
-        }
+        }                                           //after loop ends prev will hold the successor
+                                                              
+        root->key = prev->key;
+        root->right = Rdelete(root->right , prev->key);   //now just need to delete a leaf node 
+        
     }
 }
 

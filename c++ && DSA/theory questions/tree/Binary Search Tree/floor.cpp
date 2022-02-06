@@ -15,6 +15,7 @@ Node * Iinsert(Node * root , int key){                     //returns the root of
     Node* prev = nullptr;
     Node* curr = root;
     while(curr!= nullptr){
+        prev = curr;
         if(curr->key ==key)
             return root;
         else if(key < curr->key)
@@ -45,11 +46,25 @@ Node* floor(Node * root , int key){
             curr = curr->left;
         }
         else{
-            floor == curr;              //we are not checking with prev value of floor bcz we are sure that once a floor is assigned we immediately go to curr->right in search of a better floor so if any floor found after that it is guaranteed to be better than the prev floor as we moved right
+            floor = curr;              //we are not checking with prev value of floor bcz we are sure that once a floor is assigned we immediately go to curr->right in search of a better floor so if any floor found after that it is guaranteed to be better than the prev floor as we moved right
             curr = curr->right;         //moving right in search of a better floor...and any floor found front here on would be better than a prev floor;
         }
     }
     return floor;
+}
+Node* RecursiveFloor(Node * root , int key){
+    static Node* res = nullptr;
+    if(root == nullptr)
+        return res;
+    if(root->key == key)
+        return root;
+    else if(root->key > key)
+        return RecursiveFloor(root->left , key);
+    else{
+        res = root;
+        return RecursiveFloor(root->right , key);
+    }
+    
 }
 
 int main(){
@@ -63,6 +78,10 @@ int main(){
     root = Iinsert(root , 30);
     root = Iinsert(root , 10);
     root = Iinsert(root , 40);
+    Node* ans1 = floor(root , 31);
+    Node* ans2 = RecursiveFloor(root , 31);
+    cout<<ans1->key<<endl;
+    cout<<ans2->key;
 
     return 0;
 }

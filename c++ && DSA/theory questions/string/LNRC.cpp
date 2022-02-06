@@ -15,7 +15,7 @@ int LNRC1(const string &s){
 }
 //optimal : one traversal
 int LNRC2(const string &s){
-    int FI[CHAR_MAX];                         //first index of every character in string : can also use hashmap -1:not visited -2:repeating
+    int FI[CHAR_MAX];                         //this array contains the index of every non-repeating char in s: initialized as -1, if a char is repeating then mark -2;
     fill(FI , FI + CHAR_MAX , -1);
     for(int i = 0 ; i<s.length() ; i ++){
         if(FI[s[i]] == -1)

@@ -15,6 +15,7 @@ Node * Iinsert(Node * root , int key){                     //returns the root of
     Node* prev = nullptr;
     Node* curr = root;
     while(curr!= nullptr){
+        prev = curr;
         if(curr->key ==key)
             return root;
         else if(key < curr->key)
