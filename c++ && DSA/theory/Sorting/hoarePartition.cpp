@@ -1,10 +1,10 @@
 #include<iostream>
 using namespace std;
 
-void hoarePartition(int arr[] , int l , int r){
+int hoarePartition(int arr[] , int l , int r){
     int pivot = arr[l];
     int i =l;
-    int j = r+1;
+    int j = r;
     while(1){
         
         while(arr[i]<pivot){
@@ -14,16 +14,17 @@ void hoarePartition(int arr[] , int l , int r){
         while(arr[j]>pivot){
             j--;
         }
-        if(i>=j) return ;
+        if(i>=j) return i;
         swap(arr[i++] , arr[j--]);
 
     }
 }
 int main(){
-    int arr[] = {5,3,8,4,2,7,1,10};
-    hoarePartition(arr , 0 , 7);
-    for(int i =0 ; i<8 ; i++){
+    int arr[] = {3,1,2,4,1};
+    int j =hoarePartition(arr , 0 , 4);
+    for(int i =0 ; i<5 ; i++){
         cout<<arr[i]<<" ";
     }
+    cout<<endl<<j;
     return 0;
 }

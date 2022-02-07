@@ -1,12 +1,26 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int largest (int arr[] , int n){
-    int res = arr[0];
-    for(int i =0 ; i<n ; i++){
-        res =max(res , arr[i]);
+void maxHeapify(int arr[] , int n ,int i){
+    int largest = i;
+    while(1){
+        int l= 2*i+1; int r = l+1;
+        if(l<n && arr[l] > arr[largest])
+            largest = l;
+        if(r<n && arr[r] > arr[largest])
+            largest = r;
+        
+        if(largest != i){
+            swap(arr[i] , arr[largest]);
+            i = largest;
+        }
+        else break;
     }
-    return res;
+}
+void buildHeap(int arr[] , int n){
+    for(int i = (n-2)/2 ; i>=0 ; i--){
+        maxHeapify(arr , n , i);
+    }
 }
 int main(){
     return 0;

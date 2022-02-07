@@ -77,6 +77,11 @@ struct minHeap{
         size--;
         minHeapify(i);
     }
+    void buildHead(){
+        for(int i = (size -2)/2 ; i>=0 ; i--){       
+            minHeapify(i);
+        }
+    }
 
 
 };
