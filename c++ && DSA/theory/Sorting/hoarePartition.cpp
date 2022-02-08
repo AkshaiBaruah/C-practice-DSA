@@ -14,15 +14,15 @@ int hoarePartition(int arr[] , int l , int r){
         while(arr[j]>pivot){
             j--;
         }
-        if(i>=j) return i;
+        if(i>=j) return j;
         swap(arr[i++] , arr[j--]);
 
     }
 }
 int main(){
-    int arr[] = {3,1,2,4,1};
-    int j =hoarePartition(arr , 0 , 4);
-    for(int i =0 ; i<5 ; i++){
+    int arr[] = {8,4,7,9,3,10,5};
+    int j =hoarePartition(arr , 0 , 6);
+    for(int i =0 ; i<7 ; i++){
         cout<<arr[i]<<" ";
     }
     cout<<endl<<j;

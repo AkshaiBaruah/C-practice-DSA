@@ -26,7 +26,7 @@ int Hpartition(int arr[] , int l , int r){
         while(arr[j] > pivot){
             j--;
         }
-        if(i>=j) return i;
+        if(i>=j) return j;
         swap(arr[i++] , arr[j--]);
     }
 }
@@ -46,9 +46,10 @@ void qSort2(int arr[] , int l , int r){            //using hoare partition
         }
 }
 int main(){
-    int arr[] = {34,2,15,6,58};
-    qSort2(arr,0 , 4);
-    for(int i=0 ; i<5; i++){
+    int arr[] = {8,4,7,9,3,10,5};
+    int n = sizeof(arr)/sizeof(int);
+    qSort2(arr,0 , n-1);
+    for(int i=0 ; i<n; i++){
         cout<<arr[i]<<" ";
     }
     return 0;

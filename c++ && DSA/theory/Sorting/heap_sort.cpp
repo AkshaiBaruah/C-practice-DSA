@@ -22,14 +22,14 @@ void maxHeapify(int arr[] , int size , int i){   //this is used the correct only
     } 
 }
 //basic build function
-void maxHeap(int arr[] , int n){           //function to make an array into a maxheap(the build heap)
+void buildMaxHeap(int arr[] , int n){           //function to make an array into a maxheap(the build heap)
     for(int i = (n -2)/2 ; i>=0 ; i--){
         maxHeapify(arr , n , i);           
     }
 }
 //idea : build max heap->delete arr[0] which fixes it at the end->size--;
 void heap_sort(int arr[] , int n){           
-    maxHeap(arr , n);                         //makes arr a max heap;
+    buildMaxHeap(arr , n);                         //makes arr a max heap;
     for(int i = 0 ; i<n-1 ; i++){
         swap(arr[0] , arr[n-i-1]);            //n-i is the curr size so n-i-1 is the index of last element;
         maxHeapify(arr , n-i-1 , 0);          //after swapping the arr size must be reduced by 1 to fix the largest at the end
