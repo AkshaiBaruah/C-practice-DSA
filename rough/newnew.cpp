@@ -1,27 +1,23 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void maxHeapify(int arr[] , int n ,int i){
-    int largest = i;
-    while(1){
-        int l= 2*i+1; int r = l+1;
-        if(l<n && arr[l] > arr[largest])
-            largest = l;
-        if(r<n && arr[r] > arr[largest])
-            largest = r;
-        
-        if(largest != i){
-            swap(arr[i] , arr[largest]);
-            i = largest;
-        }
-        else break;
+int largestsumsubarray(int arr[],  int n){
+    if(n ==0){
+        return INT32_MIN;
     }
-}
-void buildHeap(int arr[] , int n){
-    for(int i = (n-2)/2 ; i>=0 ; i--){
-        maxHeapify(arr , n , i);
+    int res = arr[0];
+    int curr_sum = arr[0];
+    for(int i = 1; i <n ; i++){
+        curr_sum += arr[i];
+        res = max(res , curr_sum);
+        curr_sum = max(0  ,curr_sum);
     }
+    return res;
 }
+
 int main(){
+    int arr[] = {};
+    int n = sizeof(arr)/sizeof(int);
+    cout<<largestsumsubarray(arr , n);
     return 0;
 }

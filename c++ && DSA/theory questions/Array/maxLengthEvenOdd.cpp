@@ -1,21 +1,27 @@
 #include<iostream>
 using namespace std;
-
+bool isEven(int x){
+    return (x%2 == 0);
+}
+bool isOdd(int x){
+    return (x%2 != 0);
+}
 int maxLengthEvenOdd(int arr[] , int n){
-    int res =1;
-    int curr_len = 1;
+    int res =1;           //this would be the min result obv;
+    int curr_len = 1;     //"
     for(int i =1 ; i< n ; i++){
-        if(arr[i-1] %2 ==0 && arr[i] %2 !=0   ||   arr[i-1] %2 != 0 && arr[i] %2 ==0)
-            curr_len++;
+        if( isEven(arr[i-1]) && isOdd(arr[i])   ||   isOdd(arr[i-1]) && isEven(arr[i]) )      //if(alternate)
+            curr_len++;          //considering the prev curr_len we increment if alternating fashion is followed
         else
-            curr_len = 1;
+            curr_len = 1;        //else we just reset it in ith element
 
-        res = max(res , curr_len);
+        res = max(res , curr_len);             //res changes only if we found new max length of alternating OE
     }
     return res;
 }
 int main(){
     int arr[] = {10 , 12 ,8,4};
-    cout<<maxLengthEvenOdd(arr , 4);
+    int n = sizeof(arr)/sizeof(int);
+    cout<<maxLengthEvenOdd(arr , n);
     return 0;
 }

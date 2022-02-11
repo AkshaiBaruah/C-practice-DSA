@@ -43,7 +43,7 @@ void qSort2(int arr[] , int l , int r){            //using hoare partition
         int p = Hpartition(arr , l , r);
         qSort2(arr , l , p);
         qSort2(arr , p+1 , r);
-        }
+    }
 }
 int main(){
     int arr[] = {8,4,7,9,3,10,5};
