@@ -5,13 +5,10 @@ void solve(){
     string s;
     cin>>s;
     int n = s.length();
-    if(n<10)
+    if(n<=10)
         cout<<s<<endl;
     else{
-        string s1 = to_string(s[0]);
-        string s2 = to_string(n-2);
-        string  s3 = to_string(s[n-1]);
-        cout<<s1+s2+s3<<endl;
+        cout<<s[0] + to_string(n-2) + s[n-1]<<endl;
     }
 }
 

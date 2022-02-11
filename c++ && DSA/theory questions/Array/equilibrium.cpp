@@ -18,21 +18,24 @@ int isEquilibrium(int arr[] , int n){
 //optimal O(n) time and O(1) space;
 int isEquilibrium2(int arr[] , int n){
     int s1 = 0 , s2 = 0;
-    for(int i = 1 ; i<n ;i++){
+    for(int i = 0 ; i<n ;i++){
         s2 += arr[i];
     }
     for(int i = 0 ; i<n ; i++){
+        s2 -= arr[i];
         if(s1 == s2)
             return i;
         
-        s2 -= arr[i];
+        
         s1 += arr[i];
     }
-    return -1;
+    return (s1 == s2) ? n-1 : -1;
 }
 int main(){
-    int arr[ ] = {4,-2,2};
+    int arr[ ] = {4,-2,2 , 1};
     int n = sizeof(arr)/sizeof(int );
-    cout<<isEquilibrium(arr , n);
+    cout<<isEquilibrium(arr , n)<<endl;
+    cout<<isEquilibrium2(arr , n);
+
     return 0;
 }
