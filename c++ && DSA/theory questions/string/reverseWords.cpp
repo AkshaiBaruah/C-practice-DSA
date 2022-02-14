@@ -3,8 +3,7 @@ using namespace std;
 
 void reverse (string &s , int l , int r){
     while(l<=r){
-        swap(s[l] , s[r]);
-        l++; r--;
+        swap(s[l++] , s[r--]);
     }
 }
 

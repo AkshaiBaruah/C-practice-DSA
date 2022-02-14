@@ -29,6 +29,7 @@ int LNRC2(const string &s){
     }
     return res;
 }
+
 int main(){
     string s = "geeksforgeeks";
     cout<<LNRC1(s)<<endl<<LNRC2(s);

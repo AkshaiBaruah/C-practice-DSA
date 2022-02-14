@@ -15,12 +15,12 @@ int LRC(const string &s){
 //optimized : one traversal
 int LRC2(const string &s){
     int res = -1;
-    bool char_prsnt[CHAR_MAX];
-    fill(char_prsnt , char_prsnt + CHAR_MAX , false);
-    for(int i = s.length() -1 ; i>=0 ; i--){
-        if (!char_prsnt[s[i]])
-            char_prsnt[s[i]] = true;
-        else res = i;
+    bool char_prsnt[CHAR_MAX] = {};                 //0 : not encountered, 1 : encountered
+    //fill(char_prsnt , char_prsnt + CHAR_MAX , false);
+    for(int i = s.length() -1 ; i>=0 ; i--){        //traverse from back
+        if (char_prsnt[s[i]])                      
+            res = i;
+        char_prsnt[s[i]] = true;
     }
     return res;
 }
