@@ -31,16 +31,15 @@ void KMP(string &t , string &p){
     fillLPS(LPS , p);
 
     int i = 0 , j =0;
-    while(i<=n - m){
+    while(i<n){
         
         while(j<m){
-            if(p[j] != t[i+j])
+            if(p[j] != t[i])
                 break;
-            j++;
+            j++; i++;
         }
         if(j == m){
-            cout<<i<<" ";
-            i = i+j;
+            cout<<i-m<<" ";
             j = LPS[j-1];
             
         }
@@ -48,15 +47,14 @@ void KMP(string &t , string &p){
             i++;
         }
         else{
-            i +=j;
             j = LPS[j-1];
         }
 
     }
 }
 int main(){
-    string text = "abbaabbab";
-    string pat = "ab";
+    string text = "aabaaabaaac";
+    string pat = "aabaaac";
     KMP(text , pat);
     return 0;
 }
