@@ -3,6 +3,7 @@ using namespace std;
 //memotable
 int memo[1000][1000];           //we need to store values of all combinations of m and n so we need [m+1][n+1] size at least 
 int dp[1000][1000];
+
 int LCS(string &s1 , string &s2, int m , int n){
     if(m == 0 || n == 0)
         return 0; 

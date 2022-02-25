@@ -14,6 +14,14 @@ int maxPieces(int n , int a , int b , int c){
     
     return next_step + 1;
 }
+
+int mp2(int arr[] , int n , int sum){
+    
+
+    int next_step = mp2(arr , n-1 , sum);
+    if(arr[n-1] <= sum)
+    next_step;
+}
 //driver code
 int main(){
     cout<<maxPieces(23, 12 ,9 ,11);
