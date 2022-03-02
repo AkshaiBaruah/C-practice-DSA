@@ -28,7 +28,7 @@ bool isSubsetSum2(int arr[] , int n , int sum){
     }
 
     for(int i = 1 ; i<=n ; i++){                  //building the subproblem matrix by using prev values going upto the final ans
-        for(int j = 1 ; j<=sum ; j++){
+        for(int j = 1 ; j<=sum ; j++){            //while building this matrix for ij we assume we have problems of smaller i and j : basically the thought of recrursion is seen here
             if(arr[i-1] <= j){
                 dp[i][j] = dp[i-1][j - arr[i-1]] || dp[i-1][j];
             }

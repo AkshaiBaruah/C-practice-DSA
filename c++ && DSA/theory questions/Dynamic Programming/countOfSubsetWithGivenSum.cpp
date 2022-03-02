@@ -25,7 +25,7 @@ int sol2(int arr[] , int n , int sum){
         dp[0][i] = 0;
     }
 
-    for(int i = 1; i<=n ; i++){
+    for(int i = 1; i<=n ; i++){                  //building the subproblem matrix(dp)
         for(int j = 1; j<= sum ; j++){
             if(arr[i-1] <= j)
                 dp[i][j] = dp[i-1][j] + dp[i-1][j - arr[i-1]];
@@ -36,9 +36,9 @@ int sol2(int arr[] , int n , int sum){
     return dp[n][sum];
 }
 int main(){
-    int arr[] = {2, 3, 5, 6, 8, 10};
+    int arr[] = {9 ,7, 0, 3, 9, 8, 6, 5, 7, 6};
     int n = sizeof(arr)/sizeof(int);
-    int sum = 10;
+    int sum = 31;
     cout<<sol1(arr,  n , sum)<<endl<<sol2(arr , n  ,sum);
     return 0;
 }
