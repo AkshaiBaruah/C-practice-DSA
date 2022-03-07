@@ -36,10 +36,10 @@ int knapsack2(int wt[] , int val[] , int n , int W){
 //knapsack using tabulation bottom up
 int dp[1001][1001];
 int knapsack3(int wt[] , int val [] , int n , int W){
-    for(int i = 0 ; i<n ; i++){            //these two loops are similar to the base case of a recursive function
+    for(int i = 0 ; i<=n ; i++){            //these two loops are similar to the base case of a recursive function
         dp[i][0] = 0;
     }
-    for(int i = 0 ; i<W ; i++){
+    for(int i = 0 ; i<=W ; i++){
         dp[0][i] = 0;
     }
 

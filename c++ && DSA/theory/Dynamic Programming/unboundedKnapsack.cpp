@@ -30,11 +30,26 @@ int knapsack2(int wt[] , int val[] , int n , int w){
     }
     return dp[n][w];
 }
+//space optimized : 1D array
+int knapsack3(int wt[] , int val [] , int n , int w){
+    int dp[w+1];
+    //dp[0] = 0;
+    memset(dp , 0 , sizeof(dp));
+    for(int i = 1 ; i<=w ; i++){               //for a bag of weight i
+        for(int j = 0 ; j<n ; j++){            //let's consider the jth item ( to add or not to)
+            if(wt[j] <= i)
+                dp[i] = max(val[j] + dp[i - wt[j]] , dp[i]);
+                
+        }
+    }
+
+    return dp[w];
+}
 int main(){
     int wt[] = {1, 3, 4, 5};
     int val[] = {1, 4, 5, 7};
     int n = sizeof(val)/sizeof(int);
     int w = 8;
-    cout<<knapsack(wt, val , n , w)<<endl<<knapsack2(wt , val , n , w);
+    cout<<knapsack(wt, val , n , w)<<endl<<knapsack2(wt , val , n , w)<<endl<<knapsack3(wt , val , n , w);
     return 0;
 }
