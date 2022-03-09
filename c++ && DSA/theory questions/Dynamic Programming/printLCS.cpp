@@ -25,7 +25,7 @@ string printLCS(string &s1 , string &s2 , int m , int n){
             i--; j--;
         }
         else{
-            if(dp[i-1][j] > dp[i][j-1])
+            if(dp[i][j] == dp[i-1][j])
                 i--;
             else
                 j--;
@@ -35,10 +35,11 @@ string printLCS(string &s1 , string &s2 , int m , int n){
     return res;
 }
 int main(){
-    string s1 = "akshai";
-    string s2 = "zzakaiz";
+    string s1 = "bbbaaaba";
+    string s2 = "bbababbb";
     int m = s1.length();
     int n = s2.length();
     cout<<printLCS(s1 , s2 , m , n);
+    
     return 0;
 }

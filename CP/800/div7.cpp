@@ -4,24 +4,25 @@ using namespace std;
 #define ll long long
 #define lld long long double
 #define ull unsigned long long 
+#define pb push_back
+#define pf push_front
 
 void solve(){
     int n;
     cin>>n;
-    int arr[n];
-    for(int i = 0 ; i<n ; i++){
-        cin>>arr[i];
+    int rem = n%7;
+    int l = n%10;
+    if(rem == 0){
+        cout<<n<<endl;
+        return ;
     }
-    sort(arr , arr+ n);
-    int cnt = 1;
-    for(int i = 1 ; i<n ; i++){
-        if(arr[i] != arr[i-1])
-            cnt++;
+    else{
+        if(l - rem >= 0)
+            cout<<n - rem<<endl;
+        else    
+            cout<<n + 7 - rem<<endl;
     }
-    for(int i = 0 ; i<n ; i++){
-        cout<<max(i+1 , cnt)<<" ";
-    }
-    cout<<endl;
+
 }
 
 int main(){

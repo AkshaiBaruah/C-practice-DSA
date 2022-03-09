@@ -1,9 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void fun(){
-    
-}
+
 int main(){
-    cout<<x;
+    cout<<55%7;
+    return 0;
 }
