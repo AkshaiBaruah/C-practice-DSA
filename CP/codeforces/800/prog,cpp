@@ -1,0 +1,11 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	#ifndef ONLINE_JUDGE
+		fropen("input.txt", "r", stdin);
+		fropen("output.txt", "w", stdout);
+	#endif
+	cout<<"akshai my son";
+	return 0;
+}

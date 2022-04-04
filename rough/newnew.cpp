@@ -3,6 +3,9 @@ using namespace std;
 
 
 int main(){
-    cout<<55%7;
+    vector<int> v(5,1);
+    vector<vector<int>> dp(5, 0);
+    for(auto x : v)
+        cout<<x<<" ";
     return 0;
 }
