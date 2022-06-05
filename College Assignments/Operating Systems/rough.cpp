@@ -18,9 +18,11 @@ class ProducerConsumer{
                 ;
             }
             buffer[in] = x;
-            cout<<buffer[in]<<" ";
+            //cout<<buffer[in]<<" ";
             in = (in+1)%cap;
             count++;
+            cout<<"Producer produced "<<x<<"\n";
+            break;
         }
     }
     void consumer(){
@@ -30,16 +32,33 @@ class ProducerConsumer{
             }
             out = (out + 1)%cap;
             count --;
+            break;
         }
     }
 
 };
 int main(){
     ProducerConsumer pc1 (5);
-    for(int i = 1 ; i<=7 ; i++){
+    X:
+    cout<<"Enter your choice : \n1.Produce\n2.Consume\n3.Exit\n";
+    int choice;
+    cin>>choice;
+    switch (choice)
+    {
+    case 1:
+        cout<<"Enter the item :\n";
+        int i;
+        cin>>i;
         pc1.producer(i);
+        goto X;
+    case 2:
+        pc1.consumer();
+        goto X;
+    case 3:
+        exit(0);
+    default:
+        break;
     }
-    pc1.consumer();
     
     return 0;
 }

@@ -3,9 +3,7 @@ using namespace std;
 
 
 int main(){
-    vector<int> v(5,1);
-    vector<vector<int>> dp(5, 0);
-    for(auto x : v)
-        cout<<x<<" ";
+    string a = "7";
+    cout<<stoi(a);
     return 0;
 }

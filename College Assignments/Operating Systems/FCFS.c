@@ -1,7 +1,6 @@
 #include <stdio.h>
 
-int waitingTime(int process[], int n, int burstTime[], int waitTime[])
-{
+int waitingTime(int process[], int n, int burstTime[], int waitTime[]){
 
     waitTime[0] = 0;
 
@@ -10,16 +9,14 @@ int waitingTime(int process[], int n, int burstTime[], int waitTime[])
     return 0;
 }
 
-int TAT(int process[], int n, int burstTime[], int waitTime[], int tat[])
-{
+int TAT(int process[], int n, int burstTime[], int waitTime[], int tat[]){
     int i;
     for (i = 0; i < n; i++)
         tat[i] = burstTime[i] + waitTime[i];
     return 0;
 }
 
-int avgTime(int process[], int n, int burstTime[])
-{
+int avgTime(int process[], int n, int burstTime[]){
     int waitTime[n], tat[n], total_wt = 0, total_tat = 0;
 
     int i;

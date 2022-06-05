@@ -9,8 +9,7 @@ void printFreq(int arr[] , int n){
             curr_elem = arr[i];
             cnt = 1;
         }
-        else{
-            
+        else{ 
             cnt++;
         }
     }

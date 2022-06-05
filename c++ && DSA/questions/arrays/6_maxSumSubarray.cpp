@@ -13,7 +13,7 @@ int maxSumSubarray(int arr[]  , int n){          // kadane's algorithm
 }
 
 int main(){         
-    int arr[4] {-4 , -1, -2 , 0}; 
+    int arr[4] {-4 , -1, -2 , -3}; 
     cout<<maxSumSubarray(arr , 4)<<" ";
     return 0;
 }

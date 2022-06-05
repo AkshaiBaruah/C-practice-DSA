@@ -34,8 +34,8 @@ struct MyHash{
 
 
 int main(){
-    MyHash table1(10);
+    MyHash* table1 = new MyHash(10);
     for(int i =1 ; i<20 ; i++){
-        table1.insert(i);
+        table1->insert(i);
     }
 }
